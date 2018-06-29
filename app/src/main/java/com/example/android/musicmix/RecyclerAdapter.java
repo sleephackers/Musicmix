@@ -8,19 +8,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
-
 import java.util.List;
 
 public class RecyclerAdapter extends RecyclerView.Adapter <RecyclerAdapter.MyViewHolder> {
+private List<TrackList> trackList;
+private Context context;
 
-    private List<Track> tracks;
-    private Context context;
-
-    public RecyclerAdapter(List<Track> tracks,Context context)
+    public RecyclerAdapter(List<TrackList> trackList1,Context context)
     {
-        this.tracks=tracks;
+        this.trackList=trackList1;
         this.context=context;
     }
     @NonNull
@@ -32,13 +29,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter <RecyclerAdapter.MyVie
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.track_title.setText(tracks.get(position).getTrackName());
-        Glide.with(context).load(tracks.get(position).getAlbumCoverart100x100()).into(holder.track_img);
+        holder.track_title.setText(trackList.get(position).getTrack().getTrackName());
+        Glide.with(context).load(trackList.get(position).getTrack().getAlbumCoverart100x100()).into(holder.track_img);
+
+
     }
 
     @Override
     public int getItemCount() {
-      return tracks.size();
+      return trackList.size();
 
 
     }

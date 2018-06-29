@@ -8,5 +8,5 @@ import retrofit2.http.Query;
 
 public interface ApiInterface {
     @GET("chart.tracks.get")
-    Call<List<Track>> getTrackInfo(@Query("apikey") String apiKey);
+    abstract Call<TrackResponse> getTopTracks(@Query("apikey") String apikey);
 }
