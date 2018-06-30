@@ -1,19 +1,21 @@
 package com.example.android.musicmix;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import android.view.View;
+
+import com.example.android.musicmix.TopTracks.TrackList;
+import com.example.android.musicmix.TopTracks.TrackResponse;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,13 +36,27 @@ public class MainActivity extends AppCompatActivity {
         layoutManager= new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
+        fetchTracks();
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new RecyclerTouchListener.ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Intent intent = new Intent(MainActivity.this, TrackInfo.class);
+                Bundle extras = new Bundle();
+                extras.putInt("id", trackList.get(position).getTrack().getTrackId());
+                intent.putExtras(extras);
+                startActivity(intent);
 
-      
-        fetchInformation();
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+            }
+        }));
+
 
     }
 
-    public void fetchInformation()
+    public void fetchTracks()
     {
 
 
@@ -52,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<TrackResponse> call, Response<TrackResponse> response) {
                 trackList=response.body().getMessage().getBody().getTrackList();
-
-
                 adapter= new RecyclerAdapter(trackList,MainActivity.this);
                 recyclerView.setAdapter(adapter);
 
@@ -61,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<TrackResponse> call, Throwable t) {
-                Log.e(TAG, "Hello6");
-
                 Log.e(TAG, t.toString());
             }
         });

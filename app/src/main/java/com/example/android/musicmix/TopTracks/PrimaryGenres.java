@@ -1,6 +1,7 @@
-package com.example.android.musicmix;
+package com.example.android.musicmix.TopTracks;
 
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
