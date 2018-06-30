@@ -1,5 +1,7 @@
 package com.example.android.musicmix;
 
+import com.example.android.musicmix.ArtistInfoId.ArtistInfoResponse;
+import com.example.android.musicmix.TopArtists.ArtistResponse;
 import com.example.android.musicmix.TopTracks.TrackResponse;
 import com.example.android.musicmix.TrackInfoId.TrackInfoResponse;
 
@@ -15,4 +17,10 @@ public interface ApiInterface {
     Call<TrackInfoResponse> getTrackInfo(@Query("track_id") Integer id,
                                          @Query("apikey") String apikey);
 
+    @GET("chart.artists.get")
+    Call<ArtistResponse> getTopArtists(@Query("apikey") String apikey);
+
+    @GET("artist.get")
+    Call<ArtistInfoResponse> getArtistInfo(@Query("artist_id") Integer id,
+                                           @Query("apikey") String apikey);
 }

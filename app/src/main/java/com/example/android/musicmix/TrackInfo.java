@@ -17,7 +17,7 @@ import retrofit2.Response;
 
 public class TrackInfo extends AppCompatActivity {
     private final static String API_KEY = "4628d54512e015d8ce17b12be8fa1e70";
-    int id;
+    Integer id;
     TextView title;
     TextView artist;
     TextView album;
@@ -55,7 +55,8 @@ public class TrackInfo extends AppCompatActivity {
                 title.setText(track.getTrackName());
                 artist.setText(track.getArtistName());
                 album.setText(track.getAlbumName());
-                if (track.getPrimaryGenres().getMusicGenreList().isEmpty()) ;
+                if (track.getPrimaryGenres().getMusicGenreList().isEmpty())
+                    genres.setText("Genre Unknown");
                 else {
                     genres.setText(track.getPrimaryGenres().getMusicGenreList().get(0).getMusicGenre().getMusicGenreName());
                 }

@@ -8,18 +8,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.android.musicmix.TopTracks.TrackList;
-import com.squareup.picasso.Picasso;
+import com.example.android.musicmix.TopArtists.ArtistList;
+
 
 import java.util.List;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyViewHolder> {
+public class RecyclerAdapterArtist extends RecyclerView.Adapter<RecyclerAdapterArtist.MyViewHolder> {
 
-    private List<TrackList> trackLists;
+    private List<ArtistList> artistList;
     private Context context;
 
-    public RecyclerAdapter(List<TrackList> trackLists, Context context) {
-        this.trackLists = trackLists;
+    public RecyclerAdapterArtist(List<ArtistList> artistLists, Context context) {
+        this.artistList = artistLists;
         this.context = context;
     }
 
@@ -32,17 +32,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.title.setText(trackLists.get(position).getTrack().getTrackName());
-        Picasso.get()
-                .load(trackLists.get(position).getTrack().getAlbumCoverart100x100())
-                .resize(300, 300)
-                .into(holder.poster);
+        holder.title.setText(artistList.get(position).getArtist().getArtistName());
 
     }
 
     @Override
     public int getItemCount() {
-        return trackLists.size();
+        return artistList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -53,6 +49,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             super(view);
             title = view.findViewById(R.id.title_track);
             poster = view.findViewById(R.id.image_track);
+            poster.setVisibility(View.GONE);
         }
     }
 }
