@@ -1,4 +1,4 @@
-package com.example.android.musicmix;
+package com.example.android.musicmix.RetrofitCalls;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

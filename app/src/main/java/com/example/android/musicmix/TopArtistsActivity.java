@@ -8,10 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
+import com.example.android.musicmix.RetrofitCalls.ApiClient;
+import com.example.android.musicmix.RetrofitCalls.ApiInterface;
 import com.example.android.musicmix.TopArtists.ArtistList;
 import com.example.android.musicmix.TopArtists.ArtistResponse;
-import com.example.android.musicmix.TopTracks.TrackList;
-import com.example.android.musicmix.TopTracks.TrackResponse;
 
 import java.util.List;
 

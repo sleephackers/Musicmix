@@ -11,4 +11,8 @@
         android:id="@+id/top_artists"
         android:title="Top Artists"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/favourites"
+        android:title="Favourites"
+        app:showAsAction="never" />
 </menu>

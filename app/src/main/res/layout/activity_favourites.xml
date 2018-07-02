@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Favourites.FavouritesActivity">
+
+    <TextView
+
+        android:id="@+id/favouritetracks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/tracks"
+        android:gravity="bottom"
+        android:text="FAVOURITE\nTRACKS"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/favouriteartists"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/artists"
+        android:gravity="bottom"
+        android:text="FAVOURITE\nARTISTS"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+</LinearLayout>

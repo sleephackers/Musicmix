@@ -2,11 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.musicmix">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -20,7 +21,22 @@
         </activity>
         <activity android:name=".TrackInfo" />
         <activity android:name=".TopArtistsActivity" />
-        <activity android:name=".ArtistInfo"></activity>
+        <activity android:name=".ArtistInfo" />
+        <activity android:name=".Search.SearchActivity" />
+        <activity android:name=".Search.SearchDisplay" />
+        <activity android:name=".lyricsActivity" />
+
+        <provider
+            android:name=".data.TrackProvider"
+            android:authorities="com.example.android.musicmix"
+            android:exported="false" />
+
+        <activity android:name=".Favourites.FavouritesActivity" />
+        <activity android:name=".Favourites.FavouriteTracks"></activity>
+        <activity android:name=".Favourites.FavouriteTrackInfo" />
+        <activity android:name=".Favourites.FavouriteLyrics" />
+        <activity android:name=".Favourites.FavouriteArtists" />
+        <activity android:name=".Favourites.FavouriteArtistInfo" />
     </application>
 
 </manifest>
