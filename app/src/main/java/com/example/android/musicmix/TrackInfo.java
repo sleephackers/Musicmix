@@ -27,7 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class TrackInfo extends AppCompatActivity {
-    private final static String API_KEY = "4628d54512e015d8ce17b12be8fa1e70";
+    private final static String API_KEY = "0ce449cc4ebd0c6c62b0cf1903fe0830";
     Integer id;
     TextView title;
     TextView artist;
@@ -102,7 +102,9 @@ public class TrackInfo extends AppCompatActivity {
                     genres.setText(track.getPrimaryGenres().getMusicGenreList().get(0).getMusicGenre().getMusicGenreName());
                 }
                 hasLyrics = track.getHasLyrics();
-                yearofrelease.setText(track.getFirstReleaseDate());
+                StringBuilder stringBuilder = new StringBuilder(track.getFirstReleaseDate());
+                yearofrelease.setText(stringBuilder.substring(0, 10));
+
                 Picasso.get().load(track.getAlbumCoverart100x100()).resize(600, 600).into(poster);
                 lyrics.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -21,7 +21,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ArtistInfo extends AppCompatActivity {
-    private final static String API_KEY = "4628d54512e015d8ce17b12be8fa1e70";
+    private final static String API_KEY = "0ce449cc4ebd0c6c62b0cf1903fe0830";
     int id;
     TextView name;
     TextView country;

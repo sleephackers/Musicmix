@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerAdapter adapter;
     private ApiInterface apiInterface;
     NetworkInfo networkInfo;
-    private final static String API_KEY ="4628d54512e015d8ce17b12be8fa1e70";
+    private final static String API_KEY = "0ce449cc4ebd0c6c62b0cf1903fe0830";
     private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
