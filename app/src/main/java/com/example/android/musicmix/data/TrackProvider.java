@@ -151,7 +151,7 @@ public class TrackProvider extends ContentProvider {
         }
         String yearofrelease = values.getAsString(TrackContract.TrackEntry.COLUMN_YEAROFRELEASE);
         if (yearofrelease == null) {
-            throw new IllegalArgumentException("Track requires a yearofrelease");
+            throw new IllegalArgumentException("Track requires a Year of release");
         }
         String lyrics = values.getAsString(TrackContract.TrackEntry.COLUMN_LYRICS);
         if (lyrics == null) {
