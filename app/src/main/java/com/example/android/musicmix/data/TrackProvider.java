@@ -158,9 +158,9 @@ public class TrackProvider extends ContentProvider {
             throw new IllegalArgumentException("Track requires a lyrics");
         }
 
-        SQLiteDatabase mdatabase = DbHelper.getWritableDatabase();
+        SQLiteDatabase database = mDbHelper.getWritableDatabase();
 
-        long id = mdatabase.insert(TrackContract.TrackEntry.TABLE_NAME, null, values);
+        long id = database.insert(TrackContract.TrackEntry.TABLE_NAME, null, values);
         if (id == -1) {
             Log.e(LOG_TAG, "Failed to insert row for " + uri);
             return null;
